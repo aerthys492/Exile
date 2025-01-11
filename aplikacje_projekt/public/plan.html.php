@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plan zajęć</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/public/style.css">
 </head>
 <body>
 <div class="container">
@@ -208,6 +208,6 @@
         </main>
     </div>
 </div>
-<script src="dist/app.js"></script>
+<script src="/public/plan.js"></script>
 </body>
 </html>
