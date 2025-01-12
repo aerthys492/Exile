@@ -9,6 +9,7 @@ var Schedule = /** @class */ (function () {
             dateRange: "tydzien",
         };
         this.initEventListeners();
+        this.showWeek(); // Automatically display the weekly schedule on page load
     }
 
     Schedule.prototype.initEventListeners = function () {
@@ -41,18 +42,42 @@ var Schedule = /** @class */ (function () {
                 return _this.updateFilter("dateRange", e.target.value);
             });
         });
+
+        var viewButtons = document.querySelectorAll('.view-buttons button');
+        viewButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                viewButtons.forEach(function (btn) {
+                    btn.classList.remove("selected");
+                });
+                button.classList.add("selected");
+            });
+        });
+
+        document.getElementById("day-view").addEventListener("click", function () {
+            _this.updateFilter("dateRange", "dzień");
+            _this.showDay(new Date());
+        });
+        document.getElementById("week-view").addEventListener("click", function () {
+            _this.updateFilter("dateRange", "tydzien");
+            _this.showWeek();
+        });
+        document.getElementById("month-view").addEventListener("click", function () {
+            _this.updateFilter("dateRange", "miesiac");
+            _this.showMonth();
+        });
     };
 
     Schedule.prototype.updateFilter = function (key, value) {
         if (key === "dateRange") {
-            if (value === "tydzien" || value === "miesiac") {
+            if (value === "tydzien") {
                 this.filters[key] = value;
-                // Show the entire week
                 this.showWeek();
             } else if (value === "dzień") {
                 this.filters[key] = value;
-                // Show only one day (Monday)
-                this.showDay("Monday");
+                this.showDay(new Date()); // Show the current day
+            } else if (value === "miesiac") {
+                this.filters[key] = value;
+                this.showMonth();
             } else {
                 console.error(`Invalid value for ${key}: ${value}`);
             }
@@ -63,13 +88,95 @@ var Schedule = /** @class */ (function () {
     };
 
     Schedule.prototype.showWeek = function () {
-        // Logic to display the entire week
-        console.log("Displaying the entire week");
+        const calendar = document.querySelector('.calendar-grid');
+        calendar.innerHTML = '';
+
+        const currentDate = new Date();
+        const currentDay = currentDate.getDay();
+        const startOfWeek = new Date(currentDate);
+        startOfWeek.setDate(currentDate.getDate() - currentDay + (currentDay === 0 ? -6 : 1)); // Poniedziałek
+
+        for (let i = 0; i < 7; i++) {
+            const day = new Date(startOfWeek);
+            day.setDate(startOfWeek.getDate() + i);
+
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+            dayElement.innerHTML = `
+            <div class="day-header">${day.toLocaleDateString('pl-PL', {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'numeric',
+            })}</div>
+        `;
+
+            for (let hour = 8; hour <= 20; hour++) {
+                const hourElement = document.createElement('div');
+                hourElement.className = 'hour-slot';
+                hourElement.innerHTML = `
+                <div class="hour-header">${hour}:00</div>
+                <div class="hour-content">Brak wydarzeń</div>
+            `;
+                dayElement.appendChild(hourElement);
+            }
+
+            calendar.appendChild(dayElement);
+        }
+
+        console.log("Wyświetlono cały tydzień.");
     };
 
-    Schedule.prototype.showDay = function (day) {
-        // Logic to display only one day
-        console.log(`Displaying only ${day}`);
+    Schedule.prototype.showDay = function (date) {
+        const calendar = document.querySelector('.calendar-grid');
+        calendar.innerHTML = '';
+
+        const dayElement = document.createElement('div');
+        dayElement.className = 'calendar-day';
+        dayElement.innerHTML = `
+        <div class="day-header">${date.toLocaleDateString('pl-PL', {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'numeric',
+        })}</div>
+    `;
+
+        for (let hour = 8; hour <= 20; hour++) {
+            const hourElement = document.createElement('div');
+            hourElement.className = 'hour-slot';
+            hourElement.innerHTML = `
+            <div class="hour-header">${hour}:00</div>
+            <div class="hour-content">Brak wydarzeń</div>
+        `;
+            dayElement.appendChild(hourElement);
+        }
+
+        calendar.appendChild(dayElement);
+        console.log(`Wyświetlono tylko ${date.toLocaleDateString('pl-PL', { weekday: 'long' })}`);
+    };
+
+    Schedule.prototype.showMonth = function () {
+        // Clear the current calendar view
+        const calendar = document.querySelector('.calendar-grid');
+        calendar.innerHTML = '';
+
+        // Get the current date
+        const currentDate = new Date();
+        const startOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+        const endOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+
+        // Generate the month view
+        for (let day = startOfMonth; day <= endOfMonth; day.setDate(day.getDate() + 1)) {
+            const dayElement = document.createElement('div');
+            dayElement.className = 'calendar-day';
+            dayElement.innerHTML = `
+            <div class="day-header">${day.toLocaleDateString('pl-PL', { day: 'numeric', month: 'numeric' })}</div>
+            <div class="day-content">No events</div>
+        `;
+
+            calendar.appendChild(dayElement);
+        }
+
+        console.log("Displaying the entire month");
     };
 
     return Schedule;
