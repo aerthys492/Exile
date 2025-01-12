@@ -371,3 +371,98 @@ button#prev:focus, button#next:focus {
     font-size: 14px;
     margin-bottom: 5px;
 }
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+body.dark-mode .filters {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #444;
+}
+
+body.dark-mode .filters input {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark-mode .filters input::placeholder {
+    color: #aaa;
+}
+
+body.dark-mode .filters button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark-mode .calendar {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #444;
+}
+
+body.dark-mode .calendar-grid {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .calendar-day {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark-mode .view-buttons button {
+    padding: 10px 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: white;
+    color: #1e1e1e;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode .view-buttons button.selected {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+body.dark-mode #special-events {
+    background-color: #1e1e1e; /* Ciemne tło */
+    border-top: 2px solid #555; /* Jaśniejsza ramka */
+    color: #fff; /* Białe teksty */
+}
+
+body.dark-mode #special-events h2 {
+    color: #fff; /* Nagłówki w trybie ciemnym */
+}
+
+body.dark-mode #special-events li {
+    color: #ccc; /* Jaśniejszy kolor dla list */
+}
+
+.buttons button {
+    padding: 5px 10px; /* Zwiększenie wypełnienia przycisków */
+    font-size: 1.5rem;   /* Zwiększenie rozmiaru czcionki */
+}
+
+#fontSmall {
+    font-size: 14px;     /* Mniejszy rozmiar tekstu */
+}
+
+#fontMedium {
+    font-size: 18px;     /* Średni rozmiar tekstu */
+}
+
+#fontLarge {
+    font-size: 22px;     /* Duży rozmiar tekstu */
+}
