@@ -11,6 +11,10 @@
     <div class="header-content">
         <img src="logo-zut.svg" alt="Logo ZUT">
         <h1>PLAN ZUT 2025</h1>
+	<div class="header-icons">
+            <img src="dark_mode.svg" alt="Dark Mode">
+            <img src="light_mode.svg" alt="New Icon">
+        </div>
     </div>
 </header>
 <main>
@@ -50,14 +54,23 @@
     </section>
     <section class="calendar">
         <div class="calendar-header">
-            <button id="prev">&lt;</button>
-            <h2>Miesiąc</h2>
-            <button id="next">&gt;</button>
+            <button id="prev"></button>
+            
+	    <span style="font-weight: bold;">06.01.2025 - 10.01.2025</span>
+            <button id="next"></button>
             <div class="view-buttons">
                 <button id="day-view">Dzień</button>
                 <button id="week-view">Tydzień</button>
                 <button id="month-view">Miesiąc</button>
             </div>
+	    <div class="extra-buttons">
+            	<button id="link-button" title="Link">
+             		<img src="link.svg" alt="Link">
+            	</button>
+            	<button id="favorite-button" title="Favorite">
+            		<img src="favorite.svg" alt="Favorite">
+            	</button>
+    	   </div>
             <input type="search" placeholder="Wyszukaj...">
         </div>
         <div class="calendar-grid"></div>

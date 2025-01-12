@@ -31,6 +31,25 @@ header h1 {
     transform: translate(-50%, -50%);
 }
 
+.header-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: space-between; /* Rozstaw elementy nagłówka na boki */
+}
+
+.header-icons {
+    display: flex;
+    gap: 10px; /* Odstęp między obrazkami */
+}
+
+.header-icons img {
+    height: 50px; /* Rozmiar obrazków */
+    cursor: pointer; /* Opcjonalnie, dla wskazania, że są klikalne */
+}
+
+
+
 main {
     display: flex;
     flex-wrap: wrap;
@@ -169,6 +188,30 @@ main {
     color: white;
 }
 
+.extra-buttons {
+    display: flex;
+    gap: 8px; /* Odstęp między przyciskami */
+}
+
+.extra-buttons button {
+    width: 30px; /* Szerokość przycisków */
+    height: 30px; /* Wysokość przycisków */
+    background-color: transparent; /* Usunięcie tła */
+    border: none; /* Usunięcie obramowania */
+    padding: 0; /* Usunięcie wewnętrznych odstępów */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.extra-buttons button img {
+    width: 100%; /* Dopasowanie obrazu do przycisku */
+    height: 100%; /* Dopasowanie obrazu do przycisku */
+    filter: brightness(0.7); /* Przyciemnienie obrazka */
+    transition: filter 0.2s ease; /* Animacja przejścia przy hover */
+}
+
 /* Ensure the calendar grid has enough space and is visible */
 .calendar-grid {
     display: grid;
@@ -209,6 +252,33 @@ main {
 .hour-content {
     color: #666;
 }
+
+button#prev, button#next {
+    width: 40px; /* Szerokość przycisku */
+    height: 40px; /* Wysokość przycisku */
+    background-color: transparent; /* Usunięcie tła */
+    border: none; /* Usunięcie obramowania */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer; /* Wskazuje, że jest to element klikalny */
+    filter: brightness(0.7);
+}
+
+button#prev {
+    background-image: url('chevron_left.svg'); /* Tło dla przycisku "prev" */
+}
+
+button#next {
+    background-image: url('chevron_right.svg'); /* Tło dla przycisku "next" */
+}
+
+button#prev:focus, button#next:focus {
+    outline: none; /* Usuwa obramowanie focus */
+}
+
+
+
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
