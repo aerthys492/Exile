@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAN ZUT 2025</title>
+    <link rel="stylesheet" href="css/plan.css">
+</head>
+<body>
+<header>
+    <div class="header-content">
+        <img src="./css/logo-zut.svg" alt="Logo ZUT">
+        <h1>PLAN ZUT 2025</h1>
+	<div class="header-icons">
+        <div class="buttons">
+            <button id="darkModeToggle">🌙</button>
+            <button id="fontSmall">A</button>
+            <button id="fontMedium">A</button>
+            <button id="fontLarge">A</button>
+        </div>
+        </div>
+    </div>
+</header>
+<main>
+    <section class="filters">
+        <h2>Filtry:</h2>
+        <form>
+            <label for="wykladowca">Wykładowca</label>
+            <input type="text" id="wykladowca" placeholder="Podaj nazwisko">
+
+            <label for="sala">Sala</label>
+            <input type="text" id="sala" placeholder="Podaj salę">
+
+            <label for="przedmiot">Przedmiot</label>
+            <input type="text" id="przedmiot" placeholder="Podaj przedmiot">
+
+            <label for="numer-albumu">Numer albumu</label>
+            <input type="text" id="numer-albumu" placeholder="Podaj numer albumu">
+
+            <label for="grupa">Grupa</label>
+            <input type="text" id="grupa" placeholder="Podaj grupę">
+
+            <button type="submit">Szukaj</button>
+            <button type="reset" class="reset-button">Wyczyść filtry</button>
+        </form>
+        <div class="legend">
+            <h3>Legenda:</h3>
+            <ul>
+                <li><span class="lab"></span> Laboratorium</li>
+                <li><span class="lekt"></span> Lektorat</li>
+                <li><span class="wyk"></span> Wykład</li>
+                <li><span class="exam"></span> Egzamin</li>
+                <li><span class="proj"></span> Projekt</li>
+                <li><span class="canceled"></span> Odwołane</li>
+                <li><span class="aud"></span> Audytoryjne</li>
+            </ul>
+        </div>
+    </section>
+    <section class="calendar">
+        <div class="calendar-header">
+            <button id="prev"></button>
+            
+	    <span style="font-weight: bold;">06.01.2025 - 10.01.2025</span>
+            <button id="next"></button>
+            <div class="view-buttons">
+                <button id="day-view">Dzień</button>
+                <button id="week-view">Tydzień</button>
+                <button id="month-view">Miesiąc</button>
+            </div>
+	    <div class="extra-buttons">
+            	<button id="link-button" title="Link">
+                    <img src="./css/link.svg" alt="Link">
+                </button>
+            	<button id="favorite-button" title="Favorite">
+                    <img src="./css/favorite.svg" alt="Favorite">
+            	</button>
+    	   </div>
+            <input type="search" placeholder="Wyszukaj...">
+        </div>
+        <div class="calendar-grid"></div>
+    </section>
+</main>
+<div id="special-events">
+    <h2>Wiadomości</h2>
+    <ul id="event-list">
+        <li>Brak wiadomości.</li>
+    </ul>
+</div>
+<script src="js/plan.js"></script>
+<script src="js/change.js"></script>
+</body>
+</html>

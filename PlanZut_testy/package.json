@@ -1,0 +1,25 @@
+{
+  "name": "planzut",
+  "version": "1.0.0",
+  "description": "Project PlanZut",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack serve --open"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.2.3",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^6.5.1",
+    "html-webpack-plugin": "^5.5.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
